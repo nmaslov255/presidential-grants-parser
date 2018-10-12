@@ -2,7 +2,6 @@
 import requests
 
 URL = 'https://президентскиегранты.рф/public/application/table'
-# URL = 'https://xn--80afcdbalict6afooklqi5o.xn--p1ai/public/application/table'
 
 # I don't know why, but these empty params are required
 DEFAULT_PARAMS = {
