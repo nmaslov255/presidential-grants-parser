@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 import requests
 
-URL = 'https://президентскиегранты.рф/public/application/table'
+DOMAIN = 'https://президентскиегранты.рф'
+DOMAIN_ROUTE = '/public/application/table'
+
+URL = DOMAIN + DOMAIN_ROUTE
 
 # I don't know why, but these empty params are required
 DEFAULT_PARAMS = {
