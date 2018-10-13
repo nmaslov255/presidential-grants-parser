@@ -19,8 +19,9 @@ HEADERS = {
                   Chrome/69.0.3497.100 Safari/537.36'
 }
 
-def request(URL, params):
-    params = {**DEFAULT_PARAMS, **params}
+def request(URL, params=None):
+    if params != None:
+        params = {**DEFAULT_PARAMS, **params}
 
     response = requests.get(URL, params=params, headers=HEADERS)
     
