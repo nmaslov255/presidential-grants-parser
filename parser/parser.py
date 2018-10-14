@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup
 COLUMNS = ['Номер заявки', 'Наименование организации', 'Грантовое направление',
            'Название проекта', 'ИНН', 'ОГРН']
 
-
-def get_waves_of_competition(text):
+def get_form_of_competition_waves(text):
     """
     Arguments:
         text {str} -- Raw html string
@@ -26,7 +25,7 @@ def get_waves_of_competition(text):
             options.append({'id': val, 'text': desc})
     return options
 
-def is_empty_page(text):
+def is_empty_competition_page(text):
     """
     Arguments:
         text {str} -- Raw html string

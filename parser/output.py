@@ -9,6 +9,7 @@ def format_to_excel(rows, links, output, sheetname='noname'):
     
     Arguments:
         rows {object} -- pd.DataFrame with some data
+        links {list} -- list with links to grant
         output {str} -- file for write excel table
     
     Keyword Arguments:
@@ -22,7 +23,7 @@ def format_to_excel(rows, links, output, sheetname='noname'):
     
     workbook = writer.book
     worksheet = writer.sheets[sheetname]
-    
+
     rows_style = {
         'text_wrap': True,
         'valign':'top',
