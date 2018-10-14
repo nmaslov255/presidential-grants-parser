@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 from progress.bar import Bar
+import pandas as pd
 
 import api
 import cli
 import parser
+import output
 
 
 if __name__ == '__main__':
@@ -30,6 +32,12 @@ if __name__ == '__main__':
         
         grants_table.extend([parser.get_grant_description_row(page)])
         Progress.next()
+    grants_table = pd.DataFrame(grants_table)
     Progress.finish()
+
+    sheetname = 'Grants'
+    writer = output.format_to_excel(grants_table, links_to_grants, 
+                                    'text.xlsx', sheetname)
+    writer.save()
 
     import ipdb; ipdb.set_trace()
