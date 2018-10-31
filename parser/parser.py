@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 COLUMNS = ['Номер заявки', 'Наименование организации', 'Грантовое направление',
-           'Название проекта', 'ИНН', 'ОГРН']
+           'Размер гранта', 'Название проекта', 'ИНН', 'ОГРН']
 
 def get_form_of_competition_waves(text):
     """
@@ -96,5 +96,12 @@ def get_grant_description_row(text):
     progect = html.find('h2', class_='winner-info__title')\
                   .get_text('', strip=True)
 
-    grant_row = [number, organization, grant_way, progect, INN, OGRN]
+    circ_cls = 'circle-bar__info-item-number'
+    circ_bar = html.find('section', class_='winner-info')\
+                   .find_all('li', class_='circle-bar__info-item')
+                   
+    grant = circ_bar[0].find('span', class_=circ_cls).get_text('', strip=True)
+    grant = grant.replace('"', ' руб') 
+
+    grant_row = [number, organization, grant_way, grant, progect, INN, OGRN]
     return pd.Series(grant_row, COLUMNS)

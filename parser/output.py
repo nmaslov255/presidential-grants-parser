@@ -43,11 +43,13 @@ def format_to_excel(rows, links, output, sheetname='noname'):
     for idrow in range(0, len(rows)+1, 2):
         worksheet.set_row(idrow, None, zebra_format)
 
-    # set size
+    # set column size
     worksheet.set_column('A:A', 13)
-    worksheet.set_column('B:D', 50)
-    worksheet.set_column('E:E', 12)
-    worksheet.set_column('F:F', 14)
+    worksheet.set_column('B:C', 50)
+    worksheet.set_column('D:D', 20)
+    worksheet.set_column('E:E', 50)
+    worksheet.set_column('F:F', 12)
+    worksheet.set_column('G:G', 14)
 
     # add hyperlink
     for idrow in range(1, len(rows)+1):
